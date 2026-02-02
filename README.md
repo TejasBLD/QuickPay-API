@@ -73,39 +73,46 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 ## Authentication Flow
+```bash
 1.Register a new user
 2.Login to receive a JWT access token
 3.Use the token in request via the header:
-```bash
+
 Authorization: Bearer <access_token>
-```
+
 4.Access protected wallet and transaction endpoints
+```
 ## API ENDPOINTS
+
 ### Authentication
+```bash
 1.POST /api/auth/register — Register a new user
 2.POST /api/auth/login — Login and get JWT token
 3.GET /api/auth/me — Get current authenticated user
-
+```
 ### Wallet
+```bash
 1.GET /api/wallet — Get wallet details
 2.GET /api/wallet/balance — Get wallet balance
 3.POST /api/wallet/add-money — Add money to wallet
-
+```
 ### Learning outcome
+```bash
 1.Implemented JWT authentication in FastAPI
 2.Designed relational database models using SQLAlchemy
 3.Built secure password handling using bcrypt
 4.Managed environment variables securely using .env
 5.Handled real-world ORM bugs and schema mismatches
 6.Designed business logic beyond basic CRUD APIs 
-
+```
 ### Currently working on:
+```bash
 1.Wallet-to-wallet transfers
 2.Transaction rollback handling
 3.Alembic database migrations
 4.Role-based access control (Admin/User)
 5.Unit & integration testing
 6.Rate limiting and security hardening
-
+```
 
 
