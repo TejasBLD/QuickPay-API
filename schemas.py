@@ -49,8 +49,14 @@ class TransactionResponse(BaseModel):
     status:str
     from_user_id:Optional[int]
     to_user_id:Optional[int]
-    description:Optional[int]
+    description:Optional[str]
     created_at:datetime
     
     class Config:
         from_attributes=True
+        
+class TransferMoneyRequest(BaseModel):
+    to_username:str=Field(...,min_length=6)
+    amount:float=Field(...,gt=0,description="Amount must be greater than 0")
+    description:Optional[str]="Money Transfer"
+    
