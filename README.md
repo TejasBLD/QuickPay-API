@@ -96,6 +96,11 @@ Authorization: Bearer <access_token>
 2.GET /api/wallet/balance — Get wallet balance
 3.POST /api/wallet/add-money — Add money to wallet
 ```
+### Transactions
+```bash
+1.POST/api/transaction-Allows P2P transactions
+2.GET/api/transaction/history-Provides transaction history of the individual in descending order
+```
 ### Learning outcome
 ```bash
 1.Implemented JWT authentication in FastAPI
@@ -107,12 +112,11 @@ Authorization: Bearer <access_token>
 ```
 ### Currently working on:
 ```bash
-1.Wallet-to-wallet transfers
-2.Transaction rollback handling
-3.Alembic database migrations
-4.Role-based access control (Admin/User)
-5.Unit & integration testing
-6.Rate limiting and security hardening
+1.Transaction rollback handling
+2.Alembic database migrations
+3.Role-based access control (Admin/User)
+4.Unit & integration testing
+5.Rate limiting and security hardening
 ```
 
 
