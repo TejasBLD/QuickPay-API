@@ -13,7 +13,7 @@ async def get_wallet_balance(
     current_user:models.User=Depends(auth.get_current_user),
     db:Session=Depends(get_db)
 ):
-    wallet=db.query(models.Wallet).filter(models.Wallet.user_id==current_user.id)
+    wallet=db.query(models.Wallet).filter(models.Wallet.user_id==current_user.id).first()
     if not wallet:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -26,7 +26,7 @@ async def add_money(
     current_user:models.User=Depends(auth.get_current_user),
     db:Session=Depends(get_db)
 ):
-    wallet=db.query(models.Wallet).filter(models.Wallet.user_id==current_user.id)
+    wallet=db.query(models.Wallet).filter(models.Wallet.user_id==current_user.id).first()
     if not wallet:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -34,7 +34,7 @@ async def add_money(
         )
         
     transaction=models.Transaction(
-        transaction_id=f"TXN-{uuid.uuid4().hex[12].upper()}",
+        transaction_id=f"TXN-{uuid.uuid4().hex[:12].upper()}",
         user_id=current_user.id,
         amount=request.amount,
         transaction_type=models.TransactionType.CREDIT,
